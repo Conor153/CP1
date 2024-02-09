@@ -26,6 +26,7 @@ public class Gambler {
     int bets = 0;
     int gameWins = 0;
     int winningThrows = 0;
+    
 
     String playAgainResponse = "Y";
 
@@ -34,11 +35,23 @@ public class Gambler {
     while (playAgainResponse.equals("Y")) {
       int pot = getPot();
       int goal = getGoal();
+      
 
       // Game logic
       while (pot > 0 && pot < goal) {
-        // TO DO - Implement game logic
-
+        int dice = simulateThrow();
+        bets++;
+        
+         if(dice<12)
+         {
+            pot=pot+1;
+            winningThrows++;
+         }
+         else
+         {
+            pot=pot-1;
+         }
+         
       }
       if (pot == goal) {
         gameWins++;
@@ -84,7 +97,7 @@ public class Gambler {
    */
   public static int getGoal() {
     Scanner scan = new Scanner(System.in);
-    System.out.print("How much is your starting bankroll? €: ");
+    System.out.print("How much is your starting Goal? €: ");
     return scan.nextInt();
   }
 
@@ -96,9 +109,10 @@ public class Gambler {
   public static int simulateThrow() {
 
     // TODO
-    //Random randomNumber = new Random();
+    Random randomNumber = new Random();
     int randomNum = ThreadLocalRandom.current().nextInt(2, 12 + 1);
     //return randomNumber.nextInt(13);
+    System.out.println(randomNum);
     return randomNum;
   }
 }
