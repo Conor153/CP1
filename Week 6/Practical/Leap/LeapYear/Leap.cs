@@ -40,7 +40,8 @@ namespace LeapYear
             //throw new NotImplementedException("You need to implement this function.");
 
             //Check if year modulus 400 = 0; If true return true
-            //If false check if 400 = 0;
+            //If false check if year modulus 4 = 0 and year modulus 100 != 0;
+
             if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
                 return true;
             //Else return false
