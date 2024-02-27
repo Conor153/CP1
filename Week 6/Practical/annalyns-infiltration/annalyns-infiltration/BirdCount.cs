@@ -52,7 +52,6 @@ public class BirdCount
     {
         // TODO: Implement the 'Today()' method
         //throw new NotImplementedException("Please implement the BirdCount.Today() method");
-
         return _birdsPerDay[_birdsPerDay.Length-1];
 
     }
@@ -66,11 +65,7 @@ public class BirdCount
     {
         // TODO: Implement the 'IncrementTodaysCount()' method
         //throw new NotImplementedException("Please implement the BirdCount.IncrementTodaysCount() method");
-        int count = 0;
-        int birdNo = _birdsPerDay[_birdsPerDay.Length - 1];
-        count++;
-        birdNo = count;
-        _birdsPerDay[_birdsPerDay.Length - 1]
+        _birdsPerDay[_birdsPerDay.Length - 1]++;
     }
 
     /// <summary>
@@ -83,19 +78,14 @@ public class BirdCount
     {
         // TODO: Implement the 'HasDayWithoutBirds()' method
         //throw new NotImplementedException("Please implement the BirdCount.HasDayWithoutBirds() method");
-        int count = 0;
         foreach (int bird in _birdsPerDay)
         {
             if(bird == 0)
             {
-                count++;
+                return true; 
             }
         }
-        if (count > 0)
-        {
-            return true;
-        }
-        else { return false; }
+        return false; 
     }
 
     /// <summary>
@@ -112,7 +102,7 @@ public class BirdCount
         // TODO: Implement the 'CountForFirstDays()' method
         //throw new NotImplementedException("Please implement the BirdCount.CountForFirstDays() method");
         int numberOfBirds = 0;
-        for(int i=0;i<=numberOfDays; i++)
+        for(int i=0;i<numberOfDays; i++)
         {
             numberOfBirds += _birdsPerDay[i];
         }
@@ -130,9 +120,9 @@ public class BirdCount
         // TODO: Implement the 'BusyDays()' method
         //throw new NotImplementedException("Please implement the BirdCount.BusyDays() method");
         int count = 0;
-        for (int i = 0; i <= _birdsPerDay.Length; i++)
+        for (int i = 0; i <_birdsPerDay.Length; i++)
         {
-            if (_birdsPerDay[i]>5)
+            if (_birdsPerDay[i]>=5)
                 count++;
         }
         return count;
