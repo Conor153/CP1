@@ -42,11 +42,7 @@ namespace LeapYear
             //Check if year modulus 400 = 0; OR to see if year ending in __00 is a leap year
             //If year modulus 4 = 0 AND year modulus 100 != 0; to check for years between 100's
             //If tue return true
-            if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
-                return true;
-            //Else return false
-            else
-                return false;
+            return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
             
         }
     }
