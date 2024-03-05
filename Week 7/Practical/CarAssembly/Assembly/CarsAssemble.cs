@@ -20,6 +20,7 @@
  */
 
 
+using System.ComponentModel.Design;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Assembly
@@ -44,7 +45,27 @@ namespace Assembly
         public static double SuccessRate(int speed)
         {
             // Todo: implement the method SuccessRate
-            throw new NotImplementedException("Please implement the (static) AssemblyLine.SuccessRate() method");
+            //throw new NotImplementedException("Please implement the (static) AssemblyLine.SuccessRate() method");
+            if (speed >= 1 && speed <= 4)
+            {
+                return 1;
+            }
+            else if(speed == 0)
+            {
+                return 0;
+            }
+            else if(speed >= 5 && speed <= 8)
+            {
+                return 0.9;
+            }
+            else if(speed == 9)
+            {
+                return 0.8;
+            }
+            else
+            {
+                return 0.77;
+            }
         }
 
         /// <summary>
@@ -61,7 +82,9 @@ namespace Assembly
         public static double ProductionRatePerHour(int speed)
         {
             // Todo: implement the ProductionRatePerHour method
-            throw new NotImplementedException("Please implement the (static) AssemblyLine.ProductionRatePerHour() method");
+            //throw new NotImplementedException("Please implement the (static) AssemblyLine.ProductionRatePerHour() method");
+            return speed * 221 * SuccessRate(speed);
+
         }
 
         /// <summary>
@@ -75,7 +98,8 @@ namespace Assembly
         public static int WorkingItemsPerMinute(int speed)
         {
             // Todo: Implement the WorkingItemsPerMinute method
-            throw new NotImplementedException("Please implement the (static) AssemblyLine.WorkingItemsPerMinute() method");
+            //throw new NotImplementedException("Please implement the (static) AssemblyLine.WorkingItemsPerMinute() method");
+            return (int)(speed * 221 * SuccessRate(speed)/60);
         }
     }
 }

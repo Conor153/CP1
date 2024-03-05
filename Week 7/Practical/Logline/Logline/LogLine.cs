@@ -30,6 +30,8 @@ namespace Logline
         {
             // TODO - Implement the function
             throw new NotImplementedException("Implement the Message function to return just the message string");
+               
+            //return logLine.Remove(0, logLine.IndexOf(' ')+1);
         }
 
         /// <summary>
@@ -42,7 +44,8 @@ namespace Logline
         public static string LogLevel(string logLine)
         {
             /// TODO - Implement the function
-            throw new NotImplementedException("Implement the LogLevel method to return the Log level");
+            //throw new NotImplementedException("Implement the LogLevel method to return the Log level");
+            return logLine.Substring(logLine.IndexOf("INFO"),logLine.LastIndexOf("INFO"));
         }
 
         /// <summary>
@@ -56,7 +59,8 @@ namespace Logline
         public static string Reformat(string logLine)
         {
             /// TODO - Implement the function
-            throw new NotImplementedException("Implement the Reformat method to return the message then log level");
+            //throw new NotImplementedException("Implement the Reformat method to return the message then log level");
+            return logLine;
         }
     }
 }
